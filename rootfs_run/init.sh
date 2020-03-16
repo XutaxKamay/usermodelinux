@@ -9,7 +9,7 @@ ip a add 192.168.1.24/24 dev eth0
 ip route add default via 192.168.1.48
 
 HOME=/root
-SHELL=/bin/zsh
+SHELL=/bin/sh
 TERM=xterm-256color
 USER=root
 LOGNAME=root
