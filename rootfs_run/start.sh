@@ -1,2 +1,2 @@
 rm ~/.uml -rf
-linux rootfstype=hostfs rootflags=$HOME/uml/rootfs rw init=/init.sh mem=2048M umid=linuxdbg_hostfs eth0=tuntap,,,192.168.1.48
+linux ubd0=rootfs-image mem=512M umid=linuxdbg_rootfs eth0=tuntap,,,192.168.1.48
