@@ -11,3 +11,4 @@ sudo tar -xvf /var/archlinux-rfs-x86_64.tar.gz -C /uml_rootfs
 sudo mv /uml_rootfs/root.x86_64/* /uml_rootfs
 sudo rm /uml_rootfs/root.x86_64 -r
 ./populate.sh
+./umount.sh
