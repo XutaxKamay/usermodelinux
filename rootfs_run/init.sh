@@ -1,7 +1,10 @@
 #!/bin/sh
 
+echo 'loading init.sh script'
+
 mount -t proc proc proc/
 mount -t sysfs sys sys/
+mount -all
 
 # Network configuration
 ip link set dev eth0 up
@@ -15,6 +18,7 @@ USER=root
 LOGNAME=root
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 PROFILEHOME=
+
 
 # Just in case for errors
 export ZSH_DISABLE_COMPFIX="true"
