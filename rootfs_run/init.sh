@@ -2,10 +2,6 @@
 
 echo 'loading init.bash script'
 
-mount -t proc proc proc/
-mount -t sysfs sys sys/
-mount -all
-
 # Network configuration
 ip link set dev eth0 up
 ip a add 192.168.1.24/24 dev eth0       
