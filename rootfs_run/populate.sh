@@ -15,11 +15,9 @@ chsh -s /bin/zsh;
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended;
 sed -i -e "s/robbyrussell/rkj\-repos/g" /root/.zshrc;
 echo "/dev/ubd0 / ext4 defaults 0 0" > /etc/fstab;
-systemctl enable init_network.service; 
-sed -i -e "s/prohibit\-password/yes/g" /etc/ssh/sshd_config;    
-sed -i -e "/#ListenAddress 0/s/^#//g" /etc/ssh/sshd_config;    
-sed -i -e "/#PermitRootLogin prohibited\-password/s/^#//g" /etc/ssh/sshd_config;    
 systemctl enable sshd;
+sed -i -e "s/#PermitRootLogin prohibit\-password/PermitRootLogin yes/g" /etc/ssh/sshd_config;        
+sed -i -e "/#ListenAddress 0/s/^#//g" /etc/ssh/sshd_config;        
 '
 ./network.sh
 ./umount.sh

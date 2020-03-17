@@ -15,5 +15,6 @@ ExecStart=/bin/sh -c \"ip link set dev eth0 up; ip a add 192.168.1.24/24 dev eth
 [Install]
 WantedBy=multi-user.target
 " > /etc/systemd/system/init_network.service;
+systemctl enable init_network.service;
 '
 ./umount.sh
