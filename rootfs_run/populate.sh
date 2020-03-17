@@ -21,12 +21,11 @@ After=network-online.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/bin/sh -c \"ip link set dev eth0 up; ip a add 192.168.1.24/24 dev eth0; ip route add default via 192.168.1.48;\"
+ExecStart=/bin/sh -c \"ip link set dev eth0 up; ip a add 192.168.1.24/24 dev eth0; ip route add default via 192.168.1.48; echo \\\"nameserver 1.1.1.1\\\" > /etc/resolv.conf\"
 
 [Install]
 WantedBy=multi-user.target
 " > /etc/systemd/system/init_network.service;
 systemctl enable init_network.service;
-echo "nameserver 1.1.1.1" > /etc/resolv.conf;
 '
 ./umount.sh
