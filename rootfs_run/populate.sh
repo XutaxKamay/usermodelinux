@@ -1,7 +1,7 @@
 ./mount.sh
 sudo /uml_rootfs/bin/arch-chroot \
 /uml_rootfs /bin/bash -c '
-export HOME=root
+export HOME=/root;
 pacman-key --init;
 pacman-key --populate archlinux;
 echo "Server = https://mirror.oldsql.cc/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist;
@@ -10,11 +10,8 @@ echo "Creating udb0";
 mknod --mode=777 /dev/ubd0 b 98 0;
 chown root:disk /dev/ubd0;
 echo "root:tlxkjc" | chpasswd;
-chsh -s /bin/zsh root;'
-# Relog so it logs in zsh instead
-sudo /uml_rootfs/bin/arch-chroot \
-/uml_rootfs /bin/zsh -c '
-sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)";
+chsh -s /bin/zsh;
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended;
 echo "/dev/ubd0 / ext4 defaults 0 0" > /etc/fstab;
 echo "
 [Match]

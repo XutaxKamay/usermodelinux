@@ -1,3 +1,4 @@
+LIGHTGREEN='\033[1;32m'
 ./umount.sh
 dd if=/dev/zero of=rootfs-image count=0 obs=1MB seek=2000
 sudo mkfs.ext4 rootfs-image -F
@@ -16,5 +17,5 @@ sudo rm /uml_rootfs/root.x86_64 -r
 echo 'Populating'
 ./populate.sh
 ./umount.sh
-echo -e '\e[33mDone creating image!'
+echo "${LIGHTGREEN}Done creating image!"
 notify-send 'Done creating image!'
