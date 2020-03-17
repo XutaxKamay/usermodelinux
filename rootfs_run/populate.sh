@@ -12,15 +12,21 @@ chown root:disk /dev/ubd0;
 echo "root:tlxkjc" | chpasswd;
 chsh -s /bin/zsh;
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended;
+sed -i -e "s/robbyrussell/rkj\-repos/g" /root/.zshrc;
 echo "/dev/ubd0 / ext4 defaults 0 0" > /etc/fstab;
-echo "
-[Match]
-Name=eth0
- 
-[Network]
-Address=192.168.1.24/24
-Gateway=192.168.1.48
-DNS=1.1.1.1
-" > /etc/systemd/network/eth0.network;
-sed -i -e "s/robbyrussell/rkj\-repos/g" /root/.zshrc'
+echo "nameserver 1.1.1.1" > /etc/resolv.conf
+echo "[Unit]
+Description=Initial Network Config
+After=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/sh -c \"ip link set dev eth0 up; ip a add 192.168.1.24/24 dev eth0; ip route add default via 192.168.1.48;\"
+
+[Install]
+WantedBy=multi-user.target
+" > /etc/systemd/system/init_network.service;
+systemctl enable init_network.service;
+'
 ./umount.sh
