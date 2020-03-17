@@ -14,7 +14,6 @@ chsh -s /bin/zsh;
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended;
 sed -i -e "s/robbyrussell/rkj\-repos/g" /root/.zshrc;
 echo "/dev/ubd0 / ext4 defaults 0 0" > /etc/fstab;
-echo "nameserver 1.1.1.1" > /etc/resolv.conf
 echo "[Unit]
 Description=Initial Network Config
 After=network-online.target
@@ -28,5 +27,6 @@ ExecStart=/bin/sh -c \"ip link set dev eth0 up; ip a add 192.168.1.24/24 dev eth
 WantedBy=multi-user.target
 " > /etc/systemd/system/init_network.service;
 systemctl enable init_network.service;
+echo "nameserver 1.1.1.1" > /etc/resolv.conf;
 '
 ./umount.sh
