@@ -1,6 +1,6 @@
 ./umount.sh
 dd if=/dev/zero of=rootfs-image count=0 obs=1MB seek=2000
-sudo mkfs.ext2 rootfs-image -F
+sudo mkfs.ext4 rootfs-image -F
 ./mount.sh
 sudo wget -q -O /tmp/directory.html 'http://mir.archlinux.fr/iso/latest/'
 archlinuxbootstrap=$(sudo cat /tmp/directory.html| \
