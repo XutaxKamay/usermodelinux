@@ -4,11 +4,11 @@ dd if=/dev/zero of=rootfs-image count=0 obs=1MB seek=2000
 sudo mkfs.ext4 rootfs-image -F
 ./mount.sh
 echo 'Finding version for root filesystem'
-sudo wget -q -O /tmp/directory.html 'http://mir.archlinux.fr/iso/latest/'
-archlinuxbootstrap=$(sudo cat /tmp/directory.html| \
+wget -q -O /tmp/directory.html 'http://mir.archlinux.fr/iso/latest/'
+archlinuxbootstrap=$(cat /tmp/directory.html| \
     grep bootstrap|grep -F 'tar.gz</a>'|awk -F'>' '{print $2}'|rev|cut -c 4-|rev)
 echo 'Downloading/Updating archlinux bootstrap'
-sudo wget -q -N -c -O /var/archlinux-rfs-x86_64.tar.gz http://mir.archlinux.fr/iso/latest/$archlinuxbootstrap
+wget -q -N -c -O /var/archlinux-rfs-x86_64.tar.gz http://mir.archlinux.fr/iso/latest/$archlinuxbootstrap
 echo 'Extracting...'
 sudo tar -xf /var/archlinux-rfs-x86_64.tar.gz -C /uml_rootfs
 echo 'Moving folders...'
