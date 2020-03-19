@@ -20,5 +20,11 @@ sed -i -e "/#ListenAddress 0/s/^#//g" /etc/ssh/sshd_config;
 systemctl enable sshd;
 systemctl enable rngd;
 '
+OLDPWD=$PWD
+cd /lib/modules/$(uname -r)-uml/build/
+if [ $? -eq 0 ]; then
+    sudo make modules_install INSTALL_MOD_PATH=/uml_rootfs ARCH=um 
+fi
+cd $OLDPWD
 ./network.sh
 ./umount.sh
