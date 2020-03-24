@@ -6,7 +6,7 @@ export HOME=/root;
 pacman-key --init;
 pacman-key --populate archlinux;
 echo "Server = https://mirror.oldsql.cc/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist;
-pacman -Syyu base which iproute2 openssh zsh wget git vim rng-tools gdb --noconfirm;
+pacman -Syyu base which iproute2 openssh zsh wget git vim rng-tools gdb gcc g++ --noconfirm;
 echo "Creating udb0";
 mknod --mode=777 /dev/ubd0 b 98 0;
 chown root:disk /dev/ubd0;
