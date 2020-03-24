@@ -19,6 +19,9 @@ sed -i -e "s/#PermitRootLogin prohibit\-password/PermitRootLogin yes/g" /etc/ssh
 sed -i -e "/#ListenAddress 0/s/^#//g" /etc/ssh/sshd_config;        
 systemctl enable sshd;
 systemctl enable rngd;
+echo "source /usr/share/pwndbg/gdbinit.py" > /root/.gdbinit;
+echo "set follow-fork-mode parent" >> /root/.gdbinit;
+echo "set history filename ~/.gdb_history" >> /root/.gdbinit;
 '
 OLDPWD=$PWD
 cd /lib/modules/$(uname -r)-uml/build/
