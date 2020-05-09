@@ -10,6 +10,8 @@ archlinuxbootstrap=$(cat /tmp/directory.html| \
 echo 'Downloading/Updating archlinux bootstrap'
 wget -q -N -c -O /var/archlinux-rfs-x86_64.tar.gz http://mir.archlinux.fr/iso/latest/$archlinuxbootstrap
 echo 'Extracting...'
+sudo mkdir -p /uml_rootfs
+sudo chown $USER:$USER /uml_rootfs -R
 sudo tar -xf /var/archlinux-rfs-x86_64.tar.gz -C /uml_rootfs
 echo 'Moving folders...'
 sudo mv /uml_rootfs/root.x86_64/* /uml_rootfs
