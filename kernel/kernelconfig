@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/um uml Kernel Configuration
+# Linux/um 5 Kernel Configuration
 #
 
 #
@@ -20,7 +20,7 @@ CONFIG_IRQ_WORK=y
 #
 CONFIG_BROKEN_ON_SMP=y
 CONFIG_INIT_ENV_ARG_LIMIT=128
-CONFIG_LOCALVERSION=""
+CONFIG_LOCALVERSION="uml"
 CONFIG_LOCALVERSION_AUTO=y
 CONFIG_BUILD_SALT=""
 CONFIG_DEFAULT_HOSTNAME="linuxdbg"

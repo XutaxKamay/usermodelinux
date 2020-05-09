@@ -24,7 +24,7 @@ echo "set follow-fork-mode parent" >> /root/.gdbinit;
 echo "set history filename ~/.gdb_history" >> /root/.gdbinit;
 '
 OLDPWD=$PWD
-cd /lib/modules/uml/build/
+cd /lib/modules/5uml/build/
 if [ $? -eq 0 ]; then
     sudo make ARCH=um modules_install INSTALL_MOD_PATH=/uml_rootfs
 fi
