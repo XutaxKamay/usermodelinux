@@ -4,10 +4,10 @@ echo "Setting tuntap to host ip $ip"
 ./network.sh
 ./mount.sh
 OLDPWD=$PWD
-cd ~/projects/XLib/linux_kernel_module/um
+cd ~/projects/XLib/winexts/um
 if [ $? -eq 0 ]; then
     make
-    sudo cp custom_module.ko /uml_rootfs/root
+    sudo cp *.ko /uml_rootfs/root
 fi
 cd $OLDPWD
 ./umount.sh
