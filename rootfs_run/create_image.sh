@@ -1,6 +1,6 @@
 LIGHTGREEN='\033[1;32m'
 ./umount.sh
-dd if=/dev/zero of=rootfs-image count=0 obs=1MB seek=2000
+dd if=/dev/zero of=rootfs-image count=0 obs=1MB seek=8000
 sudo mkfs.ext4 rootfs-image -F
 ./mount.sh
 echo 'Finding version for root filesystem'
