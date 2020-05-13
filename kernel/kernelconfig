@@ -1391,8 +1391,8 @@ CONFIG_BRANCH_PROFILE_NONE=y
 #
 # um Debugging
 #
-CONFIG_GPROF=y
-CONFIG_GCOV=y
+# CONFIG_GPROF is not set
+# CONFIG_GCOV is not set
 CONFIG_EARLY_PRINTK=y
 # end of um Debugging
 
