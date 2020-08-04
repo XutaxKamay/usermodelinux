@@ -8,7 +8,7 @@ wget -q -O /tmp/directory.html 'http://mir.archlinux.fr/iso/latest/'
 archlinuxbootstrap=$(cat /tmp/directory.html| \
     grep bootstrap|grep -F 'tar.gz</a>'|awk -F'>' '{print $2}'|rev|cut -c 4-|rev)
 echo 'Downloading/Updating archlinux bootstrap'
-wget -q -N -c -O /var/archlinux-rfs-x86_64.tar.gz http://mir.archlinux.fr/iso/latest/$archlinuxbootstrap
+sudo wget -q -N -c -O /var/archlinux-rfs-x86_64.tar.gz http://mir.archlinux.fr/iso/latest/$archlinuxbootstrap
 echo 'Extracting...'
 sudo mkdir -p /uml_rootfs
 sudo chown $USER:$USER /uml_rootfs -R
