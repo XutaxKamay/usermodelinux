@@ -23,5 +23,5 @@ echo "source /usr/share/pwndbg/gdbinit.py" > /root/.gdbinit;
 echo "set follow-fork-mode parent" >> /root/.gdbinit;
 echo "set history filename ~/.gdb_history" >> /root/.gdbinit;
 '
-./network.sh
+#./network.sh
 ./umount.sh
