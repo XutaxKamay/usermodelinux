@@ -1,2 +1,11 @@
 Install uml-utilities 
-Add to your bin path /usr/lib64/uml/
+Add to your bin path /usr/lib64/uml
+
+1) Once it's done, you can run prepare_uml_latest.sh
+2) Then go to the uml folder and do make ARCH=um -j$(nproc), should take few mins.
+3) Then you can run the root_fs/create_image.sh that will prepare the ArchLinux file system.
+4) Export uml to your PATH env var.
+5) Once it's done, you can run root_fs/start.sh.
+6) uml_mconsole linuxdbg_rootfs inside another terminal to manage the terminal.
+7) At the end of the linux kernel boot, you should see that it attached to a /dev/pts/<number>. Attach with screen /dev/pts/<number>
+8) You should get a shell.
