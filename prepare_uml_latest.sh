@@ -23,5 +23,5 @@ sed -i "s/$patchlevel_makefile/$new_patchlevel_makefile/g" ./uml/Makefile
 sed -i "s/$sublevel_makefile/$new_sublevel_makefile/g" ./uml/Makefile
 
 echo 'Done'
-ln -s ~/uml/scripts/kernel/kernelconfig ./uml/.config
+ln -s ../kernel/kernelconfig ./uml/.config
 notify-send 'Done configurating and extracting kernel'
